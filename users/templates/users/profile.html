@@ -1,0 +1,11 @@
+{% extends "news/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Hey! {{ user.username}}, this is your profile :)</h1>
+    <br>
+    <br>
+    <h6> 
+        <a href="{% url 'home-page' %}"> Go back to the home page </a>
+    </h6>
+{% endblock content %}    
+    

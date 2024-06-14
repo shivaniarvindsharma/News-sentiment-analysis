@@ -1,0 +1,34 @@
+{% extends "news/base.html" %}
+{% load static %}
+{% block content %}
+<h1> NEWS SENTIMENT ANALYSIS </h1>
+<br>
+<h4> Here, you can get the sentiment of any news article of your choice </h4>
+<hr color="#205880">
+<br>
+<br>
+<P> 
+    <h4> Enter the text to get the sentiment: </h4>
+    <div class="container">
+        <form method="POST" action="{% url 'result' %}">
+            {% csrf_token %}
+            <label for="Keywords" class="textbox-label">Enter a keyword:</label>
+            <input type="text" id="Keywords" class="textbox" name="Keywords" placeholder="Enter Keyword here..." required>
+            <button class="submit-button" onclick="submitResponse()">Submit</button>
+        </form>
+    </div>
+    
+</P>
+<br>
+   <img src="{% static 'news/icons/faces.png' %}" alt="faces" height="200px">
+</p>
+<p>
+    
+    <script>
+        function submitResponse() {
+            const response = document.getElementById('response').value;
+            alert('Your response: ' + response);
+        }
+    </script>
+    
+{% endblock content %}    

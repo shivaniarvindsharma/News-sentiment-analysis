@@ -1,0 +1,31 @@
+{% extends "news/base.html" %}
+{% load static %}
+{% block content %}
+>
+<a href="{% url 'home-page' %}">Go, back to the main page.</a>
+<br>
+<br>
+        <h3 style="color:#205880; font-weight: 500;"> See the sentiment of news articles based on your keyword:</h3>
+        <br>
+        
+        {% if Headline %}
+            {% for item1, item2, item3 in Headline %}
+                <li><b>Headline:</b> {{ item1 }}<br>
+                    <b>Headline Link:</b>
+                        <a href={{ item2 }}, target="blank"> {{ item2 }} </a>
+                     <br>
+                    <b>Sentiment:</b>
+                    {% if  item3 == 'Positive' %}
+                        <font color='#1E9E44'><b>{{ item3 }} </b></font><br>
+                    {% elif item3 == 'Negative' %}
+                        <font color='#D61921'><b> {{ item3 }} </b></font><br>
+                    {% elif item3 == 'Neutral' %}
+                        <font color='#E6DA00'><b> {{ item3 }} </b></font><br>
+                    {% endif %}
+                </li>
+                <br>
+            {% endfor %}
+        {% endif %}
+    
+
+{% endblock %}   
